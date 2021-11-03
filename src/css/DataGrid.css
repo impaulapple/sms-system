@@ -1,0 +1,37 @@
+* {
+    -webkit-touch-callout: auto;
+    /* iOS Safari */
+    -webkit-user-select: auto;
+    /* Safari */
+    -khtml-user-select: auto;
+    /* Konqueror HTML */
+    -moz-user-select: auto;
+    /* Old versions of Firefox */
+    -ms-user-select: auto;
+    /* Internet Explorer/Edge */
+    user-select: auto;
+}
+
+.table {
+    font-size: 10px;
+}
+
+.table th {
+    vertical-align: middle !important;
+    padding: 6px !important;
+    background-color: #e0e0e0;
+    color: #000;
+    white-space: pre-wrap;
+    overflow: hidden;
+    border: 1px solid #b8b8b8 !important;
+}
+
+tr:nth-of-type(even) {
+    background: #EEEEEE;
+}
+
+.table td {
+    padding: 2px;
+    overflow: auto;
+    vertical-align: inherit;
+}

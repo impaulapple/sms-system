@@ -1,0 +1,33 @@
+// 用 npm 安装主程式
+npm install @material-ui/core --save 
+
+// Icons
+npm install @material-ui/icons --save 
+
+// i18n
+npm install react-i18next i18next --save
+
+// router
+npm install react-router-dom --save 
+
+// Add Bootstrap CSS
+npm install react-bootstrap bootstrap --save
+
+// bootstrap table
+npm install react-bootstrap-table-next --save
+
+// redux
+npm install redux react-redux --save
+
+// axios
+npm install axios
+npm install cors
+
+// renamer
+npm install --save-dev-g renamer
+
+// data-grid
+npm install handsontable @handsontable/react
+import { HotTable } from '@handsontable/react';
+@import '~handsontable/dist/handsontable.full.css';
+https://github.com/handsontable/react-handsontable

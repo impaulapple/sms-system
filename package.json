@@ -1,0 +1,53 @@
+{
+  "name": "react-empty-template",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.3",
+    "@testing-library/user-event": "^12.6.2",
+    "axios": "^0.21.4",
+    "i18next": "^19.8.4",
+    "md5": "^2.3.0",
+    "react": "^17.0.1",
+    "react-app-polyfill": "^2.0.0",
+    "react-bootstrap": "^1.4.3",
+    "react-bootstrap-table-next": "^4.0.3",
+    "react-dom": "^17.0.1",
+    "react-hotkeys": "^2.0.0",
+    "react-i18next": "^11.8.5",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "4.0.1",
+    "react-slideshow-image": "^3.5.0",
+    "web-vitals": "^1.1.0"
+  },
+  "scripts": {
+    "start": "SET PORT=80 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all",
+      "ie >= 9"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "ie >= 9"
+    ]
+  },
+  "homepage": "."
+}
