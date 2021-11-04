@@ -4,6 +4,10 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import './Indicator.css';
 import TabPanel from "./TabPanel";
 import DataSource from "./DataSource";
+import { useTranslation } from 'react-i18next';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import EjectIcon from '@material-ui/icons/Eject';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,10 +25,31 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const SMSPage = () => {
 
+const SMSPage = () => {
+    const { t } = useTranslation();
     const classes = useStyles();
-    const [value, setValue] = React.useState(0);
+
+    const aTabList = [
+        {
+            caption: t('setting'),
+            component: <DashboardIcon />
+        },
+        {
+            caption: t('dataSrouce'),
+            component: <DataSource />
+        },
+        {
+            caption: t('smsTool'),
+            component: <EjectIcon />
+        },
+        {
+            caption: t('smsScheduler'),
+            component: <MenuBookIcon />
+        },
+    ];
+
+    const [paramValue, setValue] = React.useState(1);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -42,42 +67,26 @@ const SMSPage = () => {
             <Tabs
                 orientation="vertical"
                 variant="scrollable"
-                value={value}
+                value={paramValue}
                 onChange={handleChange}
                 aria-label="Vertical tabs example"
                 className={classes.tabs}
-                componentsProps={{ indicator: { className: 'Indicator' } }}
+                componentsprops={{ indicator: { className: 'Indicator' } }}
             >
-                <Tab label="Item One" {...a11yProps(0)} />
-                <Tab label="Item Two" {...a11yProps(1)} />
-                <Tab label="Item Three" {...a11yProps(2)} />
-                <Tab label="Item Four" {...a11yProps(3)} />
-                <Tab label="Item Five" {...a11yProps(4)} />
-                <Tab label="Item Six" {...a11yProps(5)} />
-                <Tab label="Item Seven" {...a11yProps(6)} />
+                {aTabList.map((obj, i) => {
+                    return (<Tab key={i} label={obj.caption} {...a11yProps(i)} />)
+                })}
+
             </Tabs>
 
-            <TabPanel value={value} index={0}>
-                <DataSource />
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-                Item Two
-            </TabPanel>
-            <TabPanel value={value} index={2}>
-                Item Three
-            </TabPanel>
-            <TabPanel value={value} index={3}>
-                Item Four
-            </TabPanel>
-            <TabPanel value={value} index={4}>
-                Item Five
-            </TabPanel>
-            <TabPanel value={value} index={5}>
-                Item Six
-            </TabPanel>
-            <TabPanel value={value} index={6}>
-                Item Seven
-            </TabPanel>
+
+            {aTabList.map((obj, i) => {
+                return (
+                    <TabPanel style={{width:"100%"}} key={i} value={paramValue} index={i}>
+                        {obj.component}
+                    </TabPanel>
+                )
+            })}
         </div>
     );
 }

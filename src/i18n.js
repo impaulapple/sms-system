@@ -23,10 +23,10 @@ const getDefaultLanguage = () =>{
     switch (sOrgCode) {
         case "CN":
             return 'zh_cn';
-        case "TW":
-            return 'zh_tw';
-        default:
+        case "EN":
             return 'en_us';
+        default:
+            return 'zh_tw';
     }
 }
 

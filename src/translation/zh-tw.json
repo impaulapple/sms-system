@@ -1,4 +1,9 @@
 {
     "accountError": "查無此帳號",
-    "pwdError": "密碼錯誤"
+    "pwdError": "密碼錯誤",
+    "setting": "設定",
+    "dataSrouce": "資料來源",
+    "smsTool": "簡訊發送工具",
+    "smsScheduler": "簡訊發送排程",
+    "newTable": "新增資料表"
 }
