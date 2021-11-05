@@ -11,6 +11,16 @@ const theme = createTheme({
             scrollButtonsDesktop: {
                 backgroundColor: 'rgb(0 0 0 / 13%)'
             }
+        },
+        MuiTab: {
+            wrapper: {
+                textTransform: "none"
+            }
+        },
+        MuiOutlinedInput:{
+            inputMarginDense:{
+                padding:"6px 10.5px !important"
+            }
         }
     }
 });
@@ -20,16 +30,17 @@ const DataSource = () => {
     const { t } = useTranslation();
 
     const [paramValue, setValue] = React.useState(0);
+    const [paramEditingCaption, setEditingCaption] = React.useState("");
 
     const [paramDataSourceList, setDataSourceList] = React.useState([
         {
-            id: 123453,
-            caption: t('newTable'),
+            id: 123,
+            caption: 'newTable',
             isEdit: false
         },
         {
-            id: 123453564678,
-            caption: t('test2'),
+            id: 124,
+            caption: 'test2',
             isEdit: false
         }
     ]);
@@ -40,20 +51,48 @@ const DataSource = () => {
     };
 
     const updateTabNameFunc = (e) => {
-        let id = e.target.id;
-        if (validIsEmpty(id))
-            id = e.target.parentElement.id
+        let sNowId = e.target.id;
+        if (validIsEmpty(sNowId)) sNowId = e.target.parentElement.id
+        if (validIsEmpty(sNowId)) return;
 
+        let aNewList = paramDataSourceList.slice();
+        for (let i = 0, iL = aNewList.length; i < iL; i++) {
+            if (aNewList[i].id === parseInt(sNowId)) {
+                aNewList[i].isEdit = true;
+                setEditingCaption(aNewList[i].caption);
+                break;
+            }
+        }
+        setDataSourceList(aNewList);
+    }
 
-        let data = e.target.parentElement.data;
-        console.log(e, id, data)
+    const editTabCaptionFunc = (e) => {
+        setEditingCaption(e.target.value);
+    }
+
+    const saveCaptionFunc = (e) => {
+        if (e.charCode !== 13 && e.type !== "blur") return;
+        let sNewCaption = e.target.value;
+        let sNowId = e.target.id;
+
+        let aNewList = paramDataSourceList.slice();
+        for (let i = 0, iL = aNewList.length; i < iL; i++) {
+            if (aNewList[i].id === parseInt(sNowId)) {
+                aNewList[i].isEdit = false;
+                aNewList[i].caption = sNewCaption;
+                break;
+            }
+        }
+        setDataSourceList(aNewList);
     }
 
     const addNewDataSourceFunc = (e) => {
 
         let aNewList = paramDataSourceList.slice();
+        let iMaxId = Math.max.apply(null, aNewList.map(o => o.id));
 
         aNewList.push({
+            id: ++iMaxId,
             caption: t('newTable') + (aNewList.length + 1),
             isEdit: false
         });
@@ -74,16 +113,24 @@ const DataSource = () => {
                     scrollButtons="auto"
                 >
                     {paramDataSourceList.map((obj, i) => {
-                        return (<Tab key={i} id={obj.id} label={obj.caption} onDoubleClick={updateTabNameFunc} />)
+                        if (obj.isEdit)
+                            return (
+                                <Tab key={i} id={obj.id} icon={<TextField
+                                    hiddenLabel
+                                    autoFocus
+                                    style={{ width: 130 }}
+                                    id={obj.id.toString()}
+                                    variant="outlined"
+                                    size="small"
+                                    value={paramEditingCaption}
+                                    onBlur={saveCaptionFunc}
+                                    onKeyPress={saveCaptionFunc}
+                                    onChange={editTabCaptionFunc}
+                                />}
+                                />)
+                        else
+                            return (<Tab key={i} id={obj.id} label={obj.caption} onDoubleClick={updateTabNameFunc} />)
                     })}
-
-                    {/* <TextField
-                        label="Size"
-                        id="outlined-size-small"
-                        defaultValue="Small"
-                        variant="outlined"
-                        size="small"
-                    /> */}
 
                     <Tab label={"✚"} style={{ minWidth: "48px", background: "#c3bfbf" }} onClick={addNewDataSourceFunc} />
 
