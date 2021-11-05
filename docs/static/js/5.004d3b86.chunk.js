@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-empty-template"]=this["webpackJsonpreact-empty-template"]||[]).push([[5],{682:function(t,e,a){"use strict";a.r(e);var s=a(5);e.default=function(){return Object(s.jsx)("h1",{children:"This is page3 and you have to login first!"})}}}]);
+//# sourceMappingURL=5.004d3b86.chunk.js.map
