@@ -5,5 +5,6 @@
     "dataSrouce": "資料來源",
     "smsTool": "簡訊發送工具",
     "smsScheduler": "簡訊發送排程",
-    "newTable": "新增資料表"
+    "newTable": "新增資料表",
+    "uploadDataSource":"拖拉 csv, xlsx 檔案或點擊上傳"
 }

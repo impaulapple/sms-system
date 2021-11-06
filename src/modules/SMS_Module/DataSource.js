@@ -4,6 +4,9 @@ import TabPanel from "./TabPanel";
 import { useTranslation } from 'react-i18next';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { validIsEmpty } from "../../api/Validator";
+import { DropzoneArea } from 'material-ui-dropzone';
+import csvToJson from 'convert-csv-to-json';
+
 
 const theme = createTheme({
     overrides: {
@@ -46,7 +49,6 @@ const DataSource = () => {
             content: null
         }
     ]);
-
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -101,14 +103,37 @@ const DataSource = () => {
 
         setDataSourceList(aNewList);
     }
-    const handleInputChange = (event) => {
-        event.stopPropagation();
+
+    const uploadFileFunc = (aFiles) => {
+
+        if (validIsEmpty(aFiles)) return;
+        let oFile = aFiles[0];
+
+        let aaa = oFile.path;
+        
+        var fileContent = null;
+
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(oFile);
+        // let aa = csvToJson.utf8Encoding().getJsonFromCsv(oFReader.result);
+        console.log(oFReader )
+        console.log(oFile, aaa)
     }
+
+    const saveFunc = (a, b, c) => {
+        console.log(a, b, c);
+    }
+
+    const testFunc = (a, b, c) => {
+        console.log(a, b, c);
+    }
+
 
     return (
         <ThemeProvider theme={theme}>
-            <Box sx={{ width: "80%", bgcolor: 'background.paper' }}>
+            <Box sx={{ bgcolor: 'background.paper' }}>
                 <Tabs
+                    style={{ width: "80%" }}
                     value={paramValue}
                     onChange={handleChange}
                     variant="scrollable"
@@ -139,11 +164,27 @@ const DataSource = () => {
                 </Tabs>
 
                 {paramDataSourceList.map((obj, i) => {
-                    return (
-                        <TabPanel style={{ width: "100%" }} key={i} value={paramValue} index={i}>
-                            {obj.content}
-                        </TabPanel>
-                    )
+                    if (validIsEmpty(obj.content))
+                        return (
+                            <TabPanel style={{ width: "100%" }} key={i} value={paramValue} index={i}>
+                                <DropzoneArea
+                                    style={{ heigth: "500px", width: "600px" }}
+                                    acceptedFiles={['.csv', '.xlsx']}
+                                    filesLimit={1}
+                                    maxFileSize={1024 * 1024 * 5}
+                                    dropzoneText={t('uploadDataSource')}
+                                    onChange={uploadFileFunc}
+                                    onSave={saveFunc}
+                                    initialFiles={testFunc}
+                                />
+                            </TabPanel>
+                        )
+                    else
+                        return (
+                            <TabPanel style={{ width: "100%" }} key={i} value={paramValue} index={i}>
+                                {obj.content}
+                            </TabPanel>
+                        )
                 })}
 
             </Box>
