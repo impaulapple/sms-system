@@ -17,9 +17,9 @@ const theme = createTheme({
                 textTransform: "none"
             }
         },
-        MuiOutlinedInput:{
-            inputMarginDense:{
-                padding:"6px 10.5px !important"
+        MuiOutlinedInput: {
+            inputMarginDense: {
+                padding: "6px 10.5px !important"
             }
         }
     }
@@ -36,12 +36,14 @@ const DataSource = () => {
         {
             id: 123,
             caption: 'newTable',
-            isEdit: false
+            isEdit: false,
+            content: null
         },
         {
             id: 124,
             caption: 'test2',
-            isEdit: false
+            isEdit: false,
+            content: null
         }
     ]);
 
@@ -139,7 +141,7 @@ const DataSource = () => {
                 {paramDataSourceList.map((obj, i) => {
                     return (
                         <TabPanel style={{ width: "100%" }} key={i} value={paramValue} index={i}>
-                            {obj.caption}
+                            {obj.content}
                         </TabPanel>
                     )
                 })}

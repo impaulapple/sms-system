@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.6.2",
     "axios": "^0.21.4",
     "i18next": "^19.8.4",
+    "material-ui-dropzone": "^3.5.0",
     "md5": "^2.3.0",
     "react": "^17.0.1",
     "react-app-polyfill": "^2.0.0",
@@ -25,7 +26,7 @@
   },
   "scripts": {
     "start": "SET PORT=80 && react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && npm run move",
     "move": "xcopy /E/Y/I build docs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
