@@ -77,6 +77,7 @@ const DataSource = () => {
 
     const handleChange = (event, newValue) => {
         setSelectedIndex(newValue);
+        console.log(newValue)
     };
 
     const updateTabNameFunc = (e) => {
@@ -197,6 +198,8 @@ const DataSource = () => {
 
         aNewDataSourceList.splice(paramSelectedIndex, 1);
 
+        setSelectedIndex(aNewDataSourceList.length - 1);
+        
         setDataSourceList(aNewDataSourceList);
 
         closeConfirmDialogFunc();
@@ -268,6 +271,7 @@ const DataSource = () => {
                                 <BootstrapTable
                                     style={{ minWidth: "100%" }}
                                     keyField='_id'
+                                    hover
                                     data={convertToBootstrapData(obj.content)}
                                     columns={getBoostrapTableColumnsByData(obj.content)}
                                     cellEdit={cellEditFactory({ mode: 'dbclick', blurToSave: true })}

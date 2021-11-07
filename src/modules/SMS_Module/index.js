@@ -69,8 +69,6 @@ const SMSPage = () => {
                 variant="scrollable"
                 value={paramValue}
                 onChange={handleChange}
-                // aria-label="Vertical tabs example"
-                className={classes.tabs}
                 componentsprops={{ indicator: { className: 'Indicator' } }}
             >
                 {aTabList.map((obj, i) => {

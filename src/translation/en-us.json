@@ -1,4 +1,15 @@
 {
     "accountError": "Can not find this account",
-    "pwdError": "Password error"
+    "pwdError": "Password error",
+    "setting": "Setting",
+    "dataSrouce": "Data Source",
+    "smsTool": "SMS Tool",
+    "smsScheduler": "SMS sending schedule",
+    "newTable": "New Table",
+    "uploadDataSource": "Drag and drop csv, xlsx files or click to upload",
+    "dataTable": "DataTable",
+    "confirmDeleteTable": "Delete Table",
+    "confirmDeleteDetail": "Are you sure you want to delete?",
+    "Disagree": "Disagree",
+    "Agree": "Agree"
 }

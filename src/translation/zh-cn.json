@@ -1,4 +1,15 @@
 {
-    "accountError": "查无此账号",
-    "pwdError": "密码错误"
+    "accountError": "查无此帐号",
+    "pwdError": "密码错误",
+    "setting": "设定",
+    "dataSrouce": "资料来源",
+    "smsTool": "简讯发送工具",
+    "smsScheduler": "简讯发送排程",
+    "newTable": "新增资料表",
+    "uploadDataSource": "拖拉 csv, xlsx 档案或点击上传",
+    "dataTable": "资料表",
+    "confirmDeleteTable": "删除资料表",
+    "confirmDeleteDetail": "确定要删除吗?",
+    "Disagree": "不同意",
+    "Agree": "同意"
 }

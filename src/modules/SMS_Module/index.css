@@ -1,8 +1,9 @@
 .MuiTabs-indicator {
     width: 3px;
 }
-.sms-index-tabs .Mui-selected{
+.sms-index-tabs .MuiTabs-scrollable .MuiTabs-flexContainer .Mui-selected{
     font-weight: bold;
+    font-size: larger;
 }
 
 .sms-datasource-tab .MuiTab-wrapper{
