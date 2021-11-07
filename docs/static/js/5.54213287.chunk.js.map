@@ -1,0 +1,1 @@
+{"version":3,"sources":["modules/Test3Page.js"],"names":["Test3Page"],"mappings":"sJAIeA,UAJE,WACb,OAAQ","file":"static/js/5.54213287.chunk.js","sourcesContent":["const Test3Page =()=>{\r\n    return (<h1>This is page3 and you have to login first!</h1>)\r\n}\r\n\r\nexport default Test3Page;"],"sourceRoot":""}

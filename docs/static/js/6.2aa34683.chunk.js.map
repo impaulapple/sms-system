@@ -1,0 +1,1 @@
+{"version":3,"sources":["modules/TestPage.js"],"names":["TestPage"],"mappings":"sJAIeA,UAJC,WACZ,OAAQ","file":"static/js/6.2aa34683.chunk.js","sourcesContent":["const TestPage =()=>{\r\n    return (<h1>This is page1</h1>)\r\n}\r\n\r\nexport default TestPage;"],"sourceRoot":""}

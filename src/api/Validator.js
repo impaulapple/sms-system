@@ -8,6 +8,11 @@ export const validIsEmpty = v => {
     return v === "" || v === null || v === undefined;
 }
 
+export const validResopnseErrorMsg = oRes =>{
+    if (!oRes.isSuccess) return oRes.message;
+    return null;
+}
+
 export const validLogin = (sAccount, sPassword) => {
     // call api here
 

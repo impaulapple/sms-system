@@ -19,3 +19,11 @@ export const convertGetUTC = () => {
 export const convertToLocalTimeWithUTC = (sDateTime) => {
     return `${convertToLocalTime(sDateTime)} (${convertGetUTC()})`;
 }
+
+export const convertToBootstrapData = (aOriginData) => {
+    var sBootstrapUnikey = "_id";
+    for (let i = 0, iL = aOriginData.length; i < iL; i++) {
+        aOriginData[i][sBootstrapUnikey] = i;
+    }
+    return aOriginData;
+}

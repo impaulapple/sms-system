@@ -4,6 +4,7 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import Loading from './components/Loading';
 import LoginPage from './modules/Login_Module/index';
 import { AuthProvider } from './contexts/AuthContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
 

@@ -1,0 +1,11 @@
+.MuiTabs-indicator {
+    width: 3px;
+}
+.sms-index-tabs .Mui-selected{
+    font-weight: bold;
+}
+
+.sms-datasource-tab .MuiTab-wrapper{
+    flex-direction: row;
+}
+

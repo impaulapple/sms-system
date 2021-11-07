@@ -1,11 +1,10 @@
 import { Tabs, Tab, } from "@material-ui/core";
 import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import './Indicator.css';
+import './index.css';
 import TabPanel from "./TabPanel";
 import DataSource from "./DataSource";
 import { useTranslation } from 'react-i18next';
-import DashboardIcon from '@material-ui/icons/Dashboard';
 import EjectIcon from '@material-ui/icons/Eject';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 
@@ -33,7 +32,7 @@ const SMSPage = () => {
     const aTabList = [
         {
             caption: t('setting'),
-            component: <DashboardIcon />
+            component: <h1>yoyoyoyoyo King! 這是第一頁</h1>
         },
         {
             caption: t('dataSrouce'),
@@ -65,11 +64,12 @@ const SMSPage = () => {
     return (
         <div className={classes.root}>
             <Tabs
+                className="sms-index-tabs"
                 orientation="vertical"
                 variant="scrollable"
                 value={paramValue}
                 onChange={handleChange}
-                aria-label="Vertical tabs example"
+                // aria-label="Vertical tabs example"
                 className={classes.tabs}
                 componentsprops={{ indicator: { className: 'Indicator' } }}
             >
@@ -82,7 +82,7 @@ const SMSPage = () => {
 
             {aTabList.map((obj, i) => {
                 return (
-                    <TabPanel style={{width:"100%"}} key={i} value={paramValue} index={i}>
+                    <TabPanel style={{ width: "100%" }} key={i} value={paramValue} index={i}>
                         {obj.component}
                     </TabPanel>
                 )
