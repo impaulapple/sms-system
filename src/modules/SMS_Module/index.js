@@ -7,6 +7,7 @@ import DataSource from "./DataSource";
 import { useTranslation } from 'react-i18next';
 import EjectIcon from '@material-ui/icons/Eject';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
+import TextTemplate from "./TextTemplate";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,7 +41,7 @@ const SMSPage = () => {
         },
         {
             caption: t('smsTool'),
-            component: <EjectIcon />
+            component: <TextTemplate />
         },
         {
             caption: t('smsScheduler'),
@@ -80,7 +81,7 @@ const SMSPage = () => {
 
             {aTabList.map((obj, i) => {
                 return (
-                    <TabPanel style={{ width: "100%" }} key={i} value={paramValue} index={i}>
+                    <TabPanel style={{ width: "100%",overflow:"auto" }} key={i} value={paramValue} index={i}>
                         {obj.component}
                     </TabPanel>
                 )

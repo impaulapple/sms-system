@@ -199,7 +199,7 @@ const DataSource = () => {
         aNewDataSourceList.splice(paramSelectedIndex, 1);
 
         setSelectedIndex(aNewDataSourceList.length - 1);
-        
+
         setDataSourceList(aNewDataSourceList);
 
         closeConfirmDialogFunc();
@@ -254,7 +254,7 @@ const DataSource = () => {
                 {paramDataSourceList.map((obj, i) => {
                     if (validIsEmpty(obj.content))
                         return (
-                            <TabPanel style={{ width: "100%" }} key={i} value={paramSelectedIndex} index={i}>
+                            <TabPanel className="sms-datasource-tabpanel" key={i} value={paramSelectedIndex} index={i}>
                                 <DropzoneArea
                                     style={{ heigth: "500px", width: "600px" }}
                                     acceptedFiles={['.csv', '.xlsx']}
@@ -267,7 +267,7 @@ const DataSource = () => {
                         )
                     else
                         return (
-                            <TabPanel style={{ width: "100%" }} key={i} value={paramSelectedIndex} index={i}>
+                            <TabPanel className="sms-datasource-tabpanel" key={i} value={paramSelectedIndex} index={i}>
                                 <BootstrapTable
                                     style={{ minWidth: "100%" }}
                                     keyField='_id'
@@ -276,6 +276,7 @@ const DataSource = () => {
                                     columns={getBoostrapTableColumnsByData(obj.content)}
                                     cellEdit={cellEditFactory({ mode: 'dbclick', blurToSave: true })}
                                 />
+                                <Button variant="contained" color="primary">{t('save')}</Button>
                             </TabPanel>
                         )
                 })}

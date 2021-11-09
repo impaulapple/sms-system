@@ -11,5 +11,6 @@
     "confirmDeleteTable": "刪除資料表",
     "confirmDeleteDetail": "確定要刪除嗎?",
     "Disagree": "不同意",
-    "Agree": "同意"
+    "Agree": "同意",
+    "save": "儲存"
 }
