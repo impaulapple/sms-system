@@ -1,13 +1,14 @@
 import { Tabs, Tab, } from "@material-ui/core";
 import React from 'react';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import './index.css';
 import TabPanel from "./TabPanel";
-import DataSource from "./DataSource";
+import DataSourcePage from "./DataSourcePage";
 import { useTranslation } from 'react-i18next';
 import EjectIcon from '@material-ui/icons/Eject';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
-import TextTemplate from "./TextTemplate";
+import TextTemplatePage from "./TextTemplatePage";
+import SettingPage from "./SettingPage";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,15 +34,15 @@ const SMSPage = () => {
     const aTabList = [
         {
             caption: t('setting'),
-            component: <h1>yoyoyoyoyo King! 這是第一頁</h1>
+            component: <SettingPage />
         },
         {
             caption: t('dataSrouce'),
-            component: <DataSource />
+            component: <DataSourcePage />
         },
         {
             caption: t('smsTool'),
-            component: <TextTemplate />
+            component: <TextTemplatePage />
         },
         {
             caption: t('smsScheduler'),
@@ -49,7 +50,7 @@ const SMSPage = () => {
         },
     ];
 
-    const [paramValue, setValue] = React.useState(1);
+    const [paramValue, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -81,7 +82,7 @@ const SMSPage = () => {
 
             {aTabList.map((obj, i) => {
                 return (
-                    <TabPanel style={{ width: "100%",overflow:"auto" }} key={i} value={paramValue} index={i}>
+                    <TabPanel className="sms-index-tab-panel" key={i} value={paramValue} index={i}>
                         {obj.component}
                     </TabPanel>
                 )

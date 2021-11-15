@@ -1,15 +1,26 @@
 .MuiTabs-indicator {
     width: 3px;
 }
-.sms-index-tabs .MuiTabs-scrollable .MuiTabs-flexContainer .Mui-selected{
+
+.sms-index-tabs .MuiTabs-scrollable .MuiTabs-flexContainer .Mui-selected {
     font-weight: bold;
     font-size: larger;
 }
 
-.sms-datasource-tab .MuiTab-wrapper{
+.sms-index-tab-panel {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.sms-index-tab-panel .MuiBox-root {
+    height: 100%;
+}
+
+.sms-datasource-tab .MuiTab-wrapper {
     flex-direction: row;
 }
 
-.sms-datasource-tabpanel{
+.sms-datasource-tabpanel {
     border-top: 2px solid #e0e0e0;
 }

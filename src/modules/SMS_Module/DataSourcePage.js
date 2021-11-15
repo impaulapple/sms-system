@@ -42,7 +42,7 @@ const theme = createTheme({
     }
 });
 
-const DataSource = () => {
+const DataSourcePage = () => {
 
     const { t } = useTranslation();
     const eTabs = React.useRef(null);
@@ -302,4 +302,4 @@ const DataSource = () => {
     );
 }
 
-export default DataSource;
+export default DataSourcePage;
