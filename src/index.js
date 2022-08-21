@@ -13,7 +13,6 @@ import './index.css';
 import LoginPage from './modules/Login_Module/index';
 import './polyfill';
 
-
 ReactDOM.render(
   <AuthProvider>
     <Router>

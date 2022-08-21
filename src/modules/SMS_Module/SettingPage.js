@@ -7,6 +7,7 @@ import {
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import { makeStyles } from '@material-ui/core/styles';
 
+
 const useStyles = makeStyles({
     root: {
         maxWidth: 345,
@@ -46,6 +47,10 @@ const SettingPage = () => {
 
     }, []);
 
+    const clickFunc = (e) => {
+
+    }
+
     return (
 
         <Container>
@@ -60,7 +65,7 @@ const SettingPage = () => {
                         </CardActionArea>
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                       
+
                             </Typography>
                             <TextField className={classes.input} id="txt-mitake-hostname" focused autoComplete label="Outlined" variant="outlined" />
                             <TextField className={classes.input} id="txt-mitake-account" focused autoComplete label="Outlined" variant="outlined" />
@@ -68,7 +73,7 @@ const SettingPage = () => {
                         </CardContent>
 
                         <CardActions>
-                            <Button size="small" color="primary">
+                            <Button size="small" color="primary" onClick={clickFunc}>
                                 Share
                             </Button>
                             <Button size="small" color="primary">

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { validIsEmpty } from "../api/Validator";
+const { ipcRenderer } = window.require('electron');
 
 export const AuthContext = React.createContext();
 
@@ -12,6 +13,15 @@ const TIMEOUT_MINS = 60;
 
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = React.useState();
+
+  useEffect(() => {
+    console.log(456, ipcRenderer);
+
+    ipcRenderer.on('asynchronous-reply', (_event, arg) => {
+      console.log(123, arg) // prints "pong" in the DevTools console
+    })
+    ipcRenderer.send('asynchronous-message', 'ping')
+  }, [])
 
   function signUp(account, password) {
     return true;
@@ -47,10 +57,10 @@ export function AuthProvider({ children }) {
 
     }
 
-    if (validIsEmpty(currentUser) || validIsEmpty(currentUser.token)){
+    if (validIsEmpty(currentUser) || validIsEmpty(currentUser.token)) {
       logout();
       return false;
-    } 
+    }
 
     if (Date.now() - currentUser.loginTime > 1000 * 60 * TIMEOUT_MINS) {
       logout();
@@ -60,9 +70,7 @@ export function AuthProvider({ children }) {
     return true;
   }
 
-  useEffect(() => {
-    // setCurrentUser(user)
-  }, [])
+
 
   const value = {
     currentUser,

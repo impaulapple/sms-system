@@ -100,7 +100,6 @@ const LoginPage = () => {
             type="password"
             required
             variant="outlined"
-            autoComplete="current-password"
             value={paramPassword}
             onChange={updatePassword} />
 
