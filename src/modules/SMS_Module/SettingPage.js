@@ -1,21 +1,36 @@
 import React from 'react';
 import {
-    Paper, Grid, Divider,
-    Container, List, ListItem, ListItemIcon,
-    ListItemText
+    Grid, Container, Card, CardActionArea,
+    CardContent, CardMedia, CardActions, Button, Typography,
+    TextField
 } from "@material-ui/core";
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
     root: {
-        height: "100%"
+        maxWidth: 345,
+        border: '5px solid #f50057'
     },
-    divider: {
-        height: "initial",
-        background: "#a3a4a5",
+    media: {
+        height: 120,
+        position: 'relative',
+    },
+    image: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        margin: 'auto'
+    },
+    input: {
+        margin: "5px 0"
     }
-}));
+});
+const aSmsList = [
+
+];
 
 const SettingPage = () => {
     const classes = useStyles();
@@ -33,42 +48,37 @@ const SettingPage = () => {
 
     return (
 
-        <Container className={classes.root}>
+        <Container>
             <Grid container alignItems="center" >
 
-                {/* 左邊 */}
-                <List component="nav" aria-label="main mailbox folders">
-                    <ListItem button>
-                        <ListItemIcon>
-                            <MenuBookIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Inbox" />
-                    </ListItem>
-                    <Divider />
-                    <ListItem button>
-                        <ListItemIcon>
-                            <MenuBookIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Drafts" />
-                    </ListItem>
-                    <Divider />
-                </List>
+                <Grid item>
+                    <Card className={classes.root}>
+                        <CardActionArea>
+                            <CardMedia className={classes.media}>
+                                <img className={classes.image} title="mitake" src="https://www.mitake.com.tw/image/logo_20181205.png" width="100%" />
+                            </CardMedia>
+                        </CardActionArea>
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                       
+                            </Typography>
+                            <TextField className={classes.input} id="txt-mitake-hostname" focused autoComplete label="Outlined" variant="outlined" />
+                            <TextField className={classes.input} id="txt-mitake-account" focused autoComplete label="Outlined" variant="outlined" />
+                            <TextField className={classes.input} id="txt-mitake-password" focused autoComplete label="Outlined" variant="outlined" />
+                        </CardContent>
 
-                {/* 中間分隔線 */}
-                <Divider style={{
-                    height: "initial",
-                    background: "#a3a4a5",
-                    width: "7px",
-                    margin: "0 7px"
-                }} orientation="vertical" flexItem />
-
-                {/* 右邊 */}
-
+                        <CardActions>
+                            <Button size="small" color="primary">
+                                Share
+                            </Button>
+                            <Button size="small" color="primary">
+                                Learn More
+                            </Button>
+                        </CardActions>
+                    </Card>
+                </Grid>
 
             </Grid>
-
-
-
         </Container>
     )
 }

@@ -9,9 +9,6 @@ const Test3Page = React.lazy(() => import('./modules/Test3Page'));
 
 const routes = [
   {
-    path: '/Test1', name: 'Test1', component: TestPage, icon: <EjectIcon fontSize='small' />
-  },
-  {
     path: '/SMSPage', name: 'SMSPage', component: SMSPage, icon: <MenuBookIcon fontSize='small' />
   },
   {

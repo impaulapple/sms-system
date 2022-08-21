@@ -31,3 +31,7 @@ npm install handsontable @handsontable/react
 import { HotTable } from '@handsontable/react';
 @import '~handsontable/dist/handsontable.full.css';
 https://github.com/handsontable/react-handsontable
+
+
+yarn add electron concurrently wait-on cross-env
+yarn add @electron/remote
